@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import "./styles/SearchComponent.css"; // Ensure you have this CSS file
 
 const SearchComponent = ({ onRouteSelect }) => {
+
+  // const url = process.env.REACT_APP_PATH_URL;
   const [routes, setRoutes] = useState([]); // State to hold the routes
 
   // Fetch routes from the API when the component mounts

@@ -13,6 +13,8 @@ const Home = () => {
   const routingControlRef = useRef(null); // Reference to store the routing control
   const [waypoints, setWaypoints] = useState([]); // State to store waypoints
 
+  const url = process.env.REACT_APP_PATH_URL
+
   // Initialize the map
   useEffect(() => {
     mapRef.current = L.map("map").setView([6.087338801121559, 102.23861651370802], 13); // Set initial view
@@ -38,7 +40,7 @@ const Home = () => {
 
   const fetchRouteData = async (routeNo) => {
     try {
-      const response = await fetch("https://stagebusapi.onrender.com/api/routes");
+      const response = await fetch( url + "/routes");
       const data = await response.json();
 
       const selectedRoute = data.find((route) => route.route_no === routeNo);

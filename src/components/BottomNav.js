@@ -25,10 +25,10 @@ const BottomNav =  ({ onRouteSelect }) => {
   };
 
   // Function to close the nav
-  const closeNav = () => {
-    setIsExpanded(false);
-    setActiveComponent(null);
-  };
+  // const closeNav = () => {
+  //   setIsExpanded(false);
+  //   setActiveComponent(null);
+  // };
 
   return (
     <div>
