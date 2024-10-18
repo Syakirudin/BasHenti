@@ -38,8 +38,10 @@ const RoutesComponent = () => {
             </div>
             {isDropdownOpen === index && (
               <div className="dropdown-content">
-                <p>Bas No {route.route_no}</p>
-                
+                <div className="route-info">
+                  <p>Bas No {route.route_no}</p>
+                  <button className="route-button"> Pergi ke peta </button>
+                </div>
                 {/* Timeline for route details */}
                 <div className="timeline">
                   <div className="timeline-item">

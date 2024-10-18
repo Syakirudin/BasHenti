@@ -6,7 +6,7 @@ import RoutesComponent from "./RoutesComponent"; // Update with your actual path
 import NewsComponent from "./NewsComponent"; // Update with your actual path
 import SearchComponent from "./SearchComponent"; // Update with your actual path
 
-const BottomNav = () => {
+const BottomNav =  ({ onRouteSelect }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeComponent, setActiveComponent] = useState(null); // To track which component to show
   
@@ -24,6 +24,12 @@ const BottomNav = () => {
     }
   };
 
+  // Function to close the nav
+  const closeNav = () => {
+    setIsExpanded(false);
+    setActiveComponent(null);
+  };
+
   return (
     <div>
       
@@ -36,7 +42,7 @@ const BottomNav = () => {
 
         {/* Show the active component below the nav content */}
         
-        {activeComponent === "search" && <SearchComponent />}
+        {activeComponent === "search" && <SearchComponent onRouteSelect={onRouteSelect} />} {/* Pass the function */}
         {activeComponent === "routes" && <RoutesComponent />}
         {activeComponent === "news" && <NewsComponent />}
 
