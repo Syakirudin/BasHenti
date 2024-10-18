@@ -5,7 +5,8 @@
   width: 90%;
   background-color: #f9f9f9; /* Light background for the container */
   border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  overflow-y: auto;
 }
 
 .routes-title {
@@ -36,7 +37,7 @@
 
 
 .dropdown-content {
-  max-height: 450px; /* Max height of dropdown content */
+  max-height: 300px; /* Max height of dropdown content */
   margin-top: 5px; /* Space between toggle and dropdown content */
   overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
   padding: 10px;

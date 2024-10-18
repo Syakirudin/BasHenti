@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column; /* Change to column for mobile */
     height: 100vh; /* Full height of the viewport */
+    background-color: rgb(141, 140, 140);
 }
 
 .map {
@@ -25,6 +26,7 @@
         width: 100%; /* Full width on mobile */
         border: none; /* Optional: remove border */
         border-radius: 0; /* Optional: remove rounding */
+        margin: 0; /* Optional: remove margin */
     }
 }
 

@@ -1,11 +1,104 @@
 .news-container {
-  max-height: 400px; /* Set a maximum height */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 20px; /* Add some padding for aesthetics */
-  border: 1px solid #ccc; /* Optional: Add a border */
-  border-radius: 8px; /* Optional: Add rounded corners */
+  max-height: 800px;
+  overflow-y: auto;
+  width: 100%;
+  padding-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  align-items: center;
 }
 
 .news-title {
-  margin-bottom: 10px; /* Space below the title */
+  margin-bottom: 15px; /* Space below the title */
+  text-align: center; /* Center the title */
+}
+
+.card-container {
+  display: flex; /* Use flexbox to arrange cards horizontally */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line if they overflow */
+  justify-content: center; /* Center the cards */
+  gap: 15px; /* Space between the cards */
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  height: 250px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  position: relative; /* Add relative positioning */
+  background-size: cover; /* Ensure image covers the whole card */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background repetition */
+  overflow: hidden; /* Hide any overflow */
+  color: white; /* Set text color to be visible */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  padding: 10px;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slightly lift the card on hover */
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: white;
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #ddd;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.card-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  /* padding: 5px 10px; */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .news-container {
+    padding: 15px;
+  }
+
+  .card-container {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+  }
+
+  
 }

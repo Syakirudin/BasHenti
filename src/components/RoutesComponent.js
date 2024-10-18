@@ -1,63 +1,69 @@
-// src/components/RoutesComponent.js
 import React, { useState } from "react";
-import "./styles/RoutesComponent.css"; 
+import useFetchData from "../hooks/useFetchData"; // Ensure this path is correct
+import "./styles/RoutesComponent.css";
 
 const RoutesComponent = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const startLocation = "Kota Bharu";
-  const waypoints = ["Checkpoint 1", "Checkpoint 2", "Checkpoint 3", "Checkpoint 4", "Checkpoint 5", "Checkpoint 6"];
-  const endLocation = "Jerteh";
-  const routes = ["1"];
+  const url = process.env.REACT_APP_PATH_URL;
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(null);
+  const { data, error, loading } = useFetchData(url + "/routes");
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const toggleDropdown = (index) => {
+    setIsDropdownOpen(isDropdownOpen === index ? null : index);
   };
 
   return (
     <div className="routes-container">
       <h2 className="routes-title">Perjalanan</h2>
-      <p>
-        Berikut adalah daftar perjalanan yang tersedia.
-      </p>
+      <p>Berikut adalah daftar perjalanan yang tersedia.</p>
 
-      {/* Dropdown for additional route information */}
-      <div className="dropdown">
-      <div className="dropdown-toggle" onClick={toggleDropdown}>
-          <p className="route-text">Route:{routes} {startLocation} to {endLocation}</p>
-          <span className="dropdown-arrow">{isDropdownOpen ? " ▲" : " ▼"}</span>
-        </div>
-        {isDropdownOpen && (
-          <div className="dropdown-content">
-            <p>Route:{routes}</p>
-            <p>Distance: 15 km</p>
-            <p>Duration: 30 minutes</p>
-            <p>Traffic: Moderate</p>
-            
-            {/* Timeline for route details */}
-            <div className="timeline">
-              <div className="timeline-item">
-                <div className="timeline-dot"></div>
-                <p className="timeline-text">{startLocation}</p>
-              </div>
+      {data.map((route, index) => {
+        const startLocation = route.stops[0].location_name;
+        const endLocation = route.stops[route.stops.length - 1].location_name;
+        const waypoints = route.stops.slice(1, -1).map(stop => stop.location_name); // Exclude start and end points
 
-              {waypoints.map((point, index) => (
-                <div key={index} className="timeline-item">
-                  <div className="timeline-dot"></div>
-                  <p className="timeline-text">{point}</p>
-                </div>
-              ))}
-
-              <div className="timeline-item">
-                <div className="timeline-dot"></div>
-                <p className="timeline-text">{endLocation}</p>
-              </div>
+        return (
+          <div key={index} className="dropdown">
+            <div className="dropdown-toggle" onClick={() => toggleDropdown(index)}>
+              <p className="route-text">
+                Bas No {route.route_no}: {startLocation} to {endLocation}
+              </p>
+              <span className="dropdown-arrow">
+                {isDropdownOpen === index ? " ▲" : " ▼"}
+              </span>
             </div>
+            {isDropdownOpen === index && (
+              <div className="dropdown-content">
+                <p>Bas No {route.route_no}</p>
+                
+                {/* Timeline for route details */}
+                <div className="timeline">
+                  <div className="timeline-item">
+                    <div className="timeline-dot"></div>
+                    <p className="timeline-text">{startLocation}</p>
+                  </div>
 
+                  {waypoints.map((point, idx) => (
+                    <div key={idx} className="timeline-item">
+                      <div className="timeline-dot"></div>
+                      <p className="timeline-text">{point}</p>
+                    </div>
+                  ))}
 
+                  <div className="timeline-item">
+                    <div className="timeline-dot"></div>
+                    <p className="timeline-text">{endLocation}</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        );
+      })}
     </div>
   );
 };
