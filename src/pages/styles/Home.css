@@ -1,0 +1,47 @@
+
+/* src/components/Home.css */
+.container {
+    display: flex;
+    flex-direction: column; /* Change to column for mobile */
+    height: 100vh; /* Full height of the viewport */
+}
+
+.map {
+    height: 80vh; /* Map height */
+    width: 60%; /* Map width on desktop */
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 30px auto; /* Center the map */
+}
+
+/* Media Queries for Mobile View */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Ensure column layout on mobile */
+    }
+  
+    .map {
+        height: 100vh; /* Full screen height on mobile */
+        width: 100%; /* Full width on mobile */
+        border: none; /* Optional: remove border */
+        border-radius: 0; /* Optional: remove rounding */
+    }
+}
+
+
+
+
+  
+
+/* Hide the routing summary control */
+.leaflet-routing-container {
+    display: none !important; /* Prevents display */
+    width: 0 !important;      /* Prevents width */
+    height: 0 !important;     /* Prevents height */
+}
+
+/* Optionally, if you only want to hide the summary and keep other controls */
+.leaflet-routing-summary {
+    display: none !important;  /* Hides the summary */
+}
+

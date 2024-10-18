@@ -1,0 +1,61 @@
+/* styles/SearchComponent.css */
+
+.search-container {
+    max-width: 90%;
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: #f7f9fc; /* Light background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center text inside */
+}
+
+.search-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 15px; /* Add space between inputs */
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    width: 80%; /* Adjust width as needed */
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-input:focus {
+    border-color: #2560df; /* Change border color on focus */
+}
+
+.search-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #2560df; /* Primary color */
+    color: white;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.search-button:focus {
+    outline: none; /* Remove outline when button is focused */
+}

@@ -1,0 +1,96 @@
+/* src/styles/RoutesComponent.css */
+
+.routes-container {
+  padding: 20px;
+  width: 90%;
+  background-color: #f9f9f9; /* Light background for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.routes-title {
+  margin-bottom: 10px; /* Space below the title */
+  font-size: 24px; /* Title font size */
+  color: #333; /* Darker text color */
+  text-align: center; /* Center the title */
+}
+
+.dropdown {
+  margin: 10px 0;
+}
+
+.dropdown-toggle {
+  background-color: #9fe1f9; /* Blue background */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 5px; /* Rounded corners */
+  display: flex; /* Use flexbox to align items inline */
+  justify-content: space-between; /* Space between text and arrow */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Add some padding */
+}
+
+.dropdown-toggle:hover {
+  background-color: #79f3f1; /* Darker shade on hover */
+}
+
+
+.dropdown-content {
+  max-height: 450px; /* Max height of dropdown content */
+  margin-top: 5px; /* Space between toggle and dropdown content */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+  padding: 10px;
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: white; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 14px; /* Title font size */
+  color: #333; /* Darker text color */
+
+}
+
+.dropdown-content p {
+  margin: 5px 0; /* Space between paragraphs in dropdown */
+  font-size: 14px; /* Title font size */
+  color: #000000; /* Darker text color */
+}
+
+.route-text {
+  margin: 0; /* Remove margin for inline alignment */
+  flex-grow: 1; /* Allow the text to take available space */
+  
+}
+
+.dropdown-arrow {
+  margin-left: 10px; /* Add some space between text and arrow */
+}
+
+.timeline {
+  margin-top: 20px;
+  border-left: 2px solid #2560df;
+  padding-left: 10px;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #2560df;
+  border-radius: 50%;
+  position: absolute;
+  left: -17px; /* Adjust to align with the timeline line */
+}
+
+.timeline-text {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #333;
+}

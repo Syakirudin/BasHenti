@@ -1,0 +1,174 @@
+/* src/styles/BottomNav.css */
+.bottom-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    border: 2px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.search-container {
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    /* align-items: center; */
+}
+
+.search-box {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    transition: width 0.3s ease, border-color 0.3s ease;
+}
+
+.search-box.searching {
+    width: 80%; /* Reduce width when searching */
+    margin-right: 10px; /* Add margin to accommodate the cancel button */
+}
+
+.cancel-button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #0056b3;
+}
+
+.suggestions {
+    width: 100%;
+    
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-top: 5px;
+    animation: slideUp 0.3s ease forwards;
+}
+
+.routes-section, .news-section {
+    padding: 10px;
+    background-color: #8ed825;
+    border-top: 1px solid #ccc;
+  }
+  
+  .routes-section p, .news-section p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(0%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .bottom-nav {
+        width: 95%;
+        bottom: 15px;
+    }
+
+    .nav-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .extra-content {
+        font-size: 13px;
+    }
+
+    .search-box {
+        font-size: 14px;
+    }
+
+    .cancel-button {
+        font-size: 14px;
+    }
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    
+}
+
+.nav-button {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    color: #555;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 30px;
+}
+
+.nav-button i {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-button:hover {
+    color: #007bff;
+    background-color: #f0f0f0;
+}
+
+/* Add CSS for expanded state */
+.bottom-nav.expanded {
+    height: 90vh;
+    /* justify-content: space-between; */
+    /* background-color: red; */
+}
+
+/* Position the nav button at the bottom */
+.nav-header {
+    position: relative; /* Set position to relative */
+    z-index: 10; /* Ensure it's on top of other elements */
+}
+
+.extra-content {
+    margin-top: 100px;
+    text-align: center;
+    animation: slideUp 0.3s ease forwards;
+}

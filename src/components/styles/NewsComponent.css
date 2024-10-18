@@ -1,0 +1,11 @@
+.news-container {
+  max-height: 400px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px; /* Add some padding for aesthetics */
+  border: 1px solid #ccc; /* Optional: Add a border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.news-title {
+  margin-bottom: 10px; /* Space below the title */
+}
