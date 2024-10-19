@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useFetchData = (url) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([]); // Initialize as an empty array
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -10,12 +10,9 @@ const useFetchData = (url) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(url);
+                console.log("API Response:", response); // Log full response for debugging
 
-                // Check if the response Content-Type is JSON
-                if (
-                    response.headers["content-type"] &&
-                    response.headers["content-type"].includes("application/json")
-                ) {
+                if (response.headers["content-type"]?.includes("application/json")) {
                     if (Array.isArray(response.data)) {
                         setData(response.data);
                     } else {
