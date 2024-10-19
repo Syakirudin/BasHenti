@@ -1,26 +1,17 @@
 // src/components/SearchComponent.js
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useFetchData from "../hooks/useFetchData";
 import "./styles/SearchComponent.css"; // Ensure you have this CSS file
 
 const SearchComponent = ({ onRouteSelect }) => {
 
-  // const url = process.env.REACT_APP_PATH_URL;
-  const [routes, setRoutes] = useState([]); // State to hold the routes
+  const url = process.env.REACT_APP_PATH_URL;
 
-  // Fetch routes from the API when the component mounts
-  useEffect(() => {
-    const fetchRoutes = async () => {
-      try {
-        const response = await fetch("https://stagebusapi.onrender.com/api/routes");
-        const data = await response.json();
-        setRoutes(data); // Store the fetched routes in state
-      } catch (error) {
-        console.error("Failed to fetch routes:", error);
-      }
-    };
+  // Use the custom hook to fetch route data
+  const { data: routes, error, loading } = useFetchData(url + "/routes");
 
-    fetchRoutes();
-  }, []);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="search-container">
@@ -30,7 +21,7 @@ const SearchComponent = ({ onRouteSelect }) => {
           <button
             key={route.route_no}
             className="route-button"
-            onClick={() => onRouteSelect(route.route_no)} // Call the parent function with the route_no
+            onClick={() => onRouteSelect(route.route_no)}
           >
             Bas No {route.route_no}
           </button>

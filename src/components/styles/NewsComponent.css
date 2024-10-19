@@ -97,7 +97,26 @@
   }
 
   .card-container {
-    flex-direction: column; /* Stack cards vertically on smaller screens */
+    flex-direction: column; 
+  }
+
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 390px;
+    height: 250px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    position: relative; /* Add relative positioning */
+    background-size: cover; /* Ensure image covers the whole card */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background repetition */
+    overflow: hidden; /* Hide any overflow */
+    color: white; /* Set text color to be visible */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   
