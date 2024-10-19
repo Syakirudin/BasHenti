@@ -16,24 +16,26 @@
   text-align: center; /* Center the title */
 }
 
-.route-info{
+.route-info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Space between elements */
+  align-items: center; /* Center items vertically */
   margin-bottom: 10px;
 }
 
-.route-button{
+.route-button {
   background-color: #007bff; /* Blue background */
   color: white; /* White text */
   border: none; /* Remove border */
   border-radius: 5px; /* Rounded corners */
-  padding: 10px 20px; /* Padding */
-  font-size: 16px; /* Font size */
+  /* padding: 4px 8px;  */
+  font-size: 12px; /* Slightly smaller font size */
   cursor: pointer; /* Change cursor to pointer on hover */
-  margin-top: 10px; /* Space above the button */
+  margin-left: auto; /* Push the button to the right */
   transition: all 0.3s ease; /* Smooth transition on hover */
 }
+
+
 
 .dropdown {
   margin: 10px 0;
