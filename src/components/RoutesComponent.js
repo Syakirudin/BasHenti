@@ -4,13 +4,37 @@ import "./styles/RoutesComponent.css";
 
 const RoutesComponent = () => {
 
-  const url = process.env.REACT_APP_PATH_URL;
+  // const url = process.env.REACT_APP_PATH_URL;
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(null);
+  // const { data, error, loading } = useFetchData(url + "/routes");
+
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error: {error}</p>;
+
+  console.log("RoutesComponent rendered");
+
+  const url = process.env.REACT_APP_PATH_URL;
+
   const { data, error, loading } = useFetchData(url + "/routes");
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) {
+    console.log("Loading data...");
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    console.error("Error fetching data:", error);
+    return <p>Error: {error}</p>;
+  }
+
+  // Check if data is an array
+  if (!Array.isArray(data)) {
+    console.error("Data is not an array:", data);
+    return <p>No routes found or invalid data format.</p>;
+}
+
+  console.log("Fetched data:", data);
 
   const toggleDropdown = (index) => {
     setIsDropdownOpen(isDropdownOpen === index ? null : index);
