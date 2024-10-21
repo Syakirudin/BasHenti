@@ -7,6 +7,7 @@ import "./styles/Home.css"; // Import your custom CSS
 import BottomNav from "../components/BottomNav";
 import WatermarkComponent from "../components/WatermarkComponent";
 // import SearchComponent from "../components/SearchComponent";
+// import SelectStateComponent from './../components/SelectStateComponent';
 
 const Home = () => {
   const mapRef = useRef(null); // Reference to store the map instance
@@ -89,6 +90,7 @@ const Home = () => {
   return (
     <div className="container">
       <div id="map" className="map"></div>
+      {/* <SelectStateComponent onRouteSelect={fetchRouteData} /> */}
       <BottomNav onRouteSelect={fetchRouteData} /> 
       <WatermarkComponent />
     </div>

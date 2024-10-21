@@ -6,7 +6,7 @@ const RoutesComponent = () => {
   
     const url = process.env.REACT_APP_PATH_URL; // Ensure this is set in your environment variables
     const [isDropdownOpen, setIsDropdownOpen] = useState(null);
-    const { data, error, loading } = useFetchData(url + "/routes");
+    const { data, error, loading } = useFetchData(url + "/api/routes");
 
     if (loading) {
         console.log("Loading data...");
