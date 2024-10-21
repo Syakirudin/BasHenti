@@ -8,7 +8,7 @@ const SearchComponent = ({ onRouteSelect }) => {
   const url = process.env.REACT_APP_PATH_URL;
 
   // Use the custom hook to fetch route data
-  const { data: routes, error, loading } = useFetchData(url + "/api/routes");
+  const { data: routes, error, loading } = useFetchData(url + "/routes");
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
