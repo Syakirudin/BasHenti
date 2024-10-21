@@ -6,19 +6,19 @@ const NewsComponent = () => {
   const newsData = [
     {
       id: 1,
-      imageUri: "http://placehold.it/360x150",
+      // imageUri: "http://placehold.it/360x150",
       text: "Pantai Irama",
       description: "Pantai Irama adalah sebuah pantai yang terletak di Bachok",
     },
     {
       id: 2,
-      imageUri: "http://placehold.it/360x150",
+      // imageUri: "http://placehold.it/360x150",
       text: "Pantai Sabak",
       description: "Pantai Sabak adalah pantai terkenal di Kota Bharu",
     },
     {
       id: 3,
-      imageUri: "http://placehold.it/360x150",
+      // imageUri: "http://placehold.it/360x150",
       text: "Istana Dodol",
       description: "Istana Dodol terkenal dengan keunikan manisan tradisional",
     },
