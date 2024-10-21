@@ -5,6 +5,8 @@
     flex-direction: column; /* Change to column for mobile */
     height: 100vh; /* Full height of the viewport */
     background-color: rgb(141, 140, 140);
+
+    /* position: relative; */
 }
 
 .map {
@@ -13,6 +15,18 @@
     border: 2px solid black;
     border-radius: 20px;
     margin: 30px auto; /* Center the map */
+}
+
+/* Center the SelectStateComponent */
+.state-container {
+    position: absolute; /* Position relative to the nearest positioned ancestor */
+    top: 2%; /* Adjust to position at the top */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, 0); /* Centering */
+    z-index: 10000; /* Ensure it appears above the map */
+    /* background: rgba(255, 255, 255, 0.8);  */
+    padding: 10px; /* Optional: Add some padding */
+    border-radius: 8px; /* Optional: Round corners */
 }
 
 /* Media Queries for Mobile View */
@@ -27,6 +41,10 @@
         border: none; /* Optional: remove border */
         border-radius: 0; /* Optional: remove rounding */
         margin: 0; /* Optional: remove margin */
+    }
+
+    .state-container {
+        top: 20px;
     }
 }
 

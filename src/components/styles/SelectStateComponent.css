@@ -1,0 +1,33 @@
+.state-container {
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#state-select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    /* background-color: #fff; */
+    appearance: none;
+    cursor: pointer;
+}
+
+.state-flag {
+    display: inline-block;
+    width: 20px; /* Width of the flag */
+    height: 20px; /* Height of the flag */
+    border-radius: 50%; /* Make the flag round */
+    background-size: cover; /* Ensure the background image covers the flag area */
+    margin-right: 10px; /* Spacing between the flag and the text */
+}
+
+#state-select {
+    /* background: url('/path/to/default-flag.png') no-repeat left center; Default flag */
+    padding-left: 30px; /* Space for flag */
+    background-size: 20px; /* Size of the flag */
+}
