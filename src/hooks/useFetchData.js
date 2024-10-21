@@ -8,31 +8,23 @@ const useFetchData = (url) => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true); // Set loading state
             try {
                 const response = await axios.get(url);
-                console.log("API Response Headers:", response.headers);
-                console.log("API Response Data:", response.data);
+                // Log the response for debugging
+                console.log("API Response:", response.data);
 
-                if (response.headers["content-type"]?.includes("application/json")) {
-                    if (Array.isArray(response.data)) {
-                        setData(response.data);
-                    } else {
-                        throw new Error("Expected an array but received a different format");
-                    }
+                // Directly set the data if it's an array
+                if (Array.isArray(response.data)) {
+                    setData(response.data);
                 } else {
-                    throw new Error("Invalid response format: Expected JSON");
+                    throw new Error("Expected an array but received a different format");
                 }
             } catch (err) {
                 console.error("Fetch error:", err);
-                if (err.response) {
-                    console.error("Response Data:", err.response.data);
-                    console.error("Response Status:", err.response.status);
-                    setError(err.response.data);
-                } else {
-                    setError(err.message);
-                }
+                setError(err.message); // Set error message
             } finally {
-                setLoading(false);
+                setLoading(false); // Reset loading state
             }
         };
 
