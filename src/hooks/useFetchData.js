@@ -10,7 +10,8 @@ const useFetchData = (url) => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(url);
-                console.log("API Response:", response); // Log full response for debugging
+                console.log("API Response Headers:", response.headers);
+                console.log("API Response Data:", response.data);
 
                 if (response.headers["content-type"]?.includes("application/json")) {
                     if (Array.isArray(response.data)) {
@@ -23,7 +24,13 @@ const useFetchData = (url) => {
                 }
             } catch (err) {
                 console.error("Fetch error:", err);
-                setError(err.response ? err.response.data : err.message);
+                if (err.response) {
+                    console.error("Response Data:", err.response.data);
+                    console.error("Response Status:", err.response.status);
+                    setError(err.response.data);
+                } else {
+                    setError(err.message);
+                }
             } finally {
                 setLoading(false);
             }
