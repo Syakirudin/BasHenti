@@ -31,11 +31,14 @@ const NewsComponent = () => {
 
       <div className="card-container">
         {newsData.map((item) => (
-          <div key={item.id} className="card" style={{ backgroundImage: `url(${item.imageUri})` }}>
+          <div
+            key={item.id}
+            className="card"
+            style={{ backgroundImage: `url(${item.imageUri})` }}
+          >
             <div className="card-overlay">
               <h3 className="card-title">{item.text}</h3>
               <p className="card-text">{item.description}</p>
-              
             </div>
           </div>
         ))}
