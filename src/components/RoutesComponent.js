@@ -47,7 +47,7 @@ const RoutesComponent = () => {
                     <div key={index} className="dropdown">
                         <div className="dropdown-toggle" onClick={() => toggleDropdown(index)}>
                             <p className="route-text">
-                                Bas No {route.route_no}: {startLocation} to {endLocation}
+                                Bas No {route.route_no}: {startLocation} ke {endLocation}
                             </p>
                             <span className="dropdown-arrow">
                                 {isDropdownOpen === index ? " ▲" : " ▼"}
@@ -57,7 +57,7 @@ const RoutesComponent = () => {
                             <div className="dropdown-content">
                                 <div className="route-info">
                                     <p>Bas No {route.route_no}</p>
-                                    <button className="route-button"> Pergi ke peta </button>
+                                    {/* <button className="route-button"> Pergi ke peta </button> */}
                                 </div>
                                 {/* Timeline for route details */}
                                 <div className="timeline">

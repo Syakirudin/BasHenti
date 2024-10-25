@@ -1,3 +1,4 @@
+// src/components/BottomNav.js
 import React, { useState } from "react";
 import "./styles/BottomNav.css"; // Use the updated path
 
@@ -6,12 +7,10 @@ import RoutesComponent from "./RoutesComponent"; // Update with your actual path
 import NewsComponent from "./NewsComponent"; // Update with your actual path
 import SearchComponent from "./SearchComponent"; // Update with your actual path
 
-const BottomNav =  ({ onRouteSelect }) => {
+const BottomNav = ({ onRouteSelect }) => { // Accept the function as a prop
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeComponent, setActiveComponent] = useState(null); // To track which component to show
-  
 
-    
   const loadComponent = (component) => {
     // Check if the same component is clicked again
     if (activeComponent === component) {
@@ -24,24 +23,11 @@ const BottomNav =  ({ onRouteSelect }) => {
     }
   };
 
-  // Function to close the nav
-  // const closeNav = () => {
-  //   setIsExpanded(false);
-  //   setActiveComponent(null);
-  // };
-
   return (
     <div>
-      
-
       {/* Bottom navigation */}
-
-
-      <div className={`bottom-nav ${isExpanded ? "expanded" : ""}`}>       
-
-
+      <div className={`bottom-nav ${isExpanded ? "expanded" : ""}`}>
         {/* Show the active component below the nav content */}
-        
         {activeComponent === "search" && <SearchComponent onRouteSelect={onRouteSelect} />} {/* Pass the function */}
         {activeComponent === "routes" && <RoutesComponent />}
         {activeComponent === "news" && <NewsComponent />}
@@ -49,7 +35,7 @@ const BottomNav =  ({ onRouteSelect }) => {
         {/* Render the selected component */}
         <div className="nav-content">
           <button className="nav-button" onClick={() => loadComponent("search")}>
-          <i class="fa-solid fa-bus"></i> Carian
+            <i className="fa-solid fa-bus"></i> Carian
           </button>
 
           <button className="nav-button" onClick={() => loadComponent("routes")}>
@@ -60,7 +46,6 @@ const BottomNav =  ({ onRouteSelect }) => {
             <i className="fas fa-mountain-city"></i> Tempat Menarik
           </button>
         </div>
-
       </div>
     </div>
   );
